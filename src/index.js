@@ -17,10 +17,9 @@ function generatePoem(event) {
     "You are a poet who writes playful and humorous poems for all ages. Give each poem a title. Separate each line incuding title with a <br /> . Sign each poem at the bottom '<strong>Vulani Mapiyeye</strong>' ";
   let prompt = `Generate a 5 line poem about ${topic}.`;
   let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
-
-  console.log("generating poem");
-  console.log(`Prompt: ${prompt}`);
-  console.log(`Context:${context}`);
+  let poemElement = document.querySelector("#poem");
+  poemElement.classList.remove("hidden");
+  poemElement.innerHTML = `<div class="blink">Generating English poem about ${topic}</div>`;
 
   axios.get(apiUrl).then(showPoem);
 }

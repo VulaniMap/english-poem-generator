@@ -14,11 +14,13 @@ function generatePoem(event) {
   let topic = document.querySelector("#topic").value;
   let apiKey = "aofcd5541add57c0396398488b47at43";
   let context =
-    "You are a poet who writes playful and humorous poems for all ages.";
-  let prompt = `Generate a 5-6 lines of a poem about ${topic}.`;
+    "You are a poet who writes playful and humorous poems for all ages. Give each poem a title. Separate each line incuding title with a <br /> . Sign each poem at the bottom '<strong>Vulani Mapiyeye</strong>' ";
+  let prompt = `Generate a 5 line poem about ${topic}.`;
   let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
 
   console.log("generating poem");
+  console.log(`Prompt: ${prompt}`);
+  console.log(`Context:${context}`);
 
   axios.get(apiUrl).then(showPoem);
 }
